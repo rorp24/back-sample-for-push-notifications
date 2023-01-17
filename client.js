@@ -2,10 +2,9 @@
 
 if ('serviceWorker' in navigator) {
   console.log('Registerable service worker');
-  run().catch(error => console.error(error));
 }
 
-async function run() {
+async function subscribe() {
     const appconf = await (await fetch('./config/app.config.json')).json();
     const registration = await navigator.serviceWorker.
         register('/worker.js', {scope: '/'});
